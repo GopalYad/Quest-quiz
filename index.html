@@ -1,16 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>QUIZ App</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!----------------Quiz menu start-------------------------------->
+    <div class="main">
+      <!-----Toggle bar start------>
+      <div class="toggle__bar">
 
-  <!----------------Quiz menu start-------------------------------->
-   
-  
-</body>
+        <div class="space__bar"></div>
+        <div class="togle__box">
+          <div class="toggle__btn">
+            <div class="sun__img">
+              <img src="" alt="">
+            </div>
+            <input type="checkbox" name="checkbox" id="toggle" />
+            <label for="toggle" class="switch"></label>
+            <div class="moon__img">
+              <img src="" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+      <!--------CONTENT ABOUT QUIZ-->
+      <div class="content__quiz">
+        <h1>Welcome to the <span class="bolded">Frontend Quiz!</span></h1>
+        <p>Pick a subject to get started.</p>
+      </div>
+
+      <!----BUTTONS FEATURES QUIZ---->
+      <div class="button__features">
+        <button class="button-html">
+          <div class="button-icon-container">
+            <img src="./Assets/icon-html.svg">
+          </div>HTML
+        </button>
+        <button class="button-css">
+          <div class="button-icon-container">
+            <img src="./Assets/icon-css.svg">
+          </div>CSS
+        </button>
+        <button class="button-js">
+          <div class="button-icon-container">
+            <img src="./Assets/icon-js.svg">
+          </div>
+          JavaScript
+        </button>
+        <button class="button-accessibility">
+          <div class="button-icon-container">
+            <img src="./Assets/icon-accessibility.svg">
+          </div>
+          Accessibility
+        </button>
+      </div>
+       <div class="space-margin"></div>
+    </div>
+    <script type="module" src="./js/App.js"></script>
+  </body>
 </html>

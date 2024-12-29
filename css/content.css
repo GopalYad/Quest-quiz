@@ -1,0 +1,26 @@
+@import '../css/style.css';
+
+.content__quiz{
+    padding: 45px;
+    width: 100%;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 53px;
+}
+.content__quiz h1{
+    color: var(--text-color);
+    font-weight: 100;  
+}
+
+.content__quiz p{
+    color: var(--text-color-p);
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+@media (max-width:665px) {
+   .content__quiz {
+    font-size: 1.3rem;
+   }
+}
