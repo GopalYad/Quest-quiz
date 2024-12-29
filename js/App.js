@@ -28,6 +28,41 @@ data.quizzes.forEach((item)=>{
     })
 })
 
+const btns = document.querySelectorAll('.js-btn-features button');
+
+btns.forEach((button)=>{
+    button.addEventListener('click',()=>{
+        const feature = button.dataset.feature;
+        // console.log(`Button clicked: ${feature}`);
+        showClick(feature);
+    })
+})
+ 
+
+function showClick(feature){
+    let matchItem;
+   
+    data.quizzes.forEach((item)=>{
+       if(feature === item.title){
+        console.log(item)
+        getQuiz(item)
+        
+       }
+    })
+   
+}
+
+function getQuiz(element){
+   console.log(element.title)
+   console.log(element.icon)
+   element.questions.forEach((questions)=>{
+    console.log(questions.answer)
+   })
+}
+
+
+
+
 
 
 
