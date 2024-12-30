@@ -65,12 +65,41 @@
 
 
       <!--------Qustion Container----------------->
-       <div class="question__container" style="display: none;">
-        <button>A</button>
-        <button>B</button>
-        <button>C</button>
-        <button>D</button>
-        <button>Submit answer</button>
+       <div class="question__container">
+        <article class="question-screen">
+          <div class="left-content">
+            <div class="question-wrapper">
+              <p class="question-count">Question <span class="question-number"><!-- number --></span> of <span
+                  class="question-total"><!-- total --></span></p>
+              <h2 class="question">Placeholder</h2>
+            </div>
+            <div class="progress-bar whole">
+              <div class="progress-bar done">
+    
+              </div>
+            </div>
+          </div>
+          <div class="choices options">
+            <button id="A" class="option">
+              <div class="option-box">A</div>
+            </button>
+            <button id="B" class="option">
+              <div class="option-box">B</div>
+            </button>
+            <button id="C" class="option">
+              <div class="option-box">C</div>
+            </button>
+            <button id="D" class="option">
+              <div class="option-box">D</div>
+            </button>
+    
+            <button class="submit-answer">Submit answer</button>
+            <div class="select-prompt">
+              <img src="./Assets/icon-error.svg" alt="error icon">
+              <p class="select-prompt-text">Please select an answer</p>
+            </div>
+          </div>
+        </article>
        </div>
     </div>
     <script type="module" src="./js/App.js"></script>

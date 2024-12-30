@@ -52,6 +52,12 @@ body{
     max-width: 550px; 
    
 }
+.question__container{
+    display: none;
+}
+.active{
+    display: none;
+}
 @media (max-width:786px) {
    body{
     background-image: var(--bg-sm);
