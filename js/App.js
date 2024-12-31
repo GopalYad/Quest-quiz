@@ -52,9 +52,12 @@ function showClick(feature) {
   //   getQuiz(matchItem)
   const question = getQuestions(matchItem);
   const options = getOptions(matchItem);
+  const answer = getAnswer(matchItem);
+  console.log(answer);
   // console.log(question)
-  console.log(options);
+  // console.log(options);
   displayQuestionsAndOptions(question, options);
+  checkResult(answer);
 
   // displayQuestions(getQuestions(matchItem))
 }
@@ -73,12 +76,20 @@ function getOptions(matchItem) {
   });
   return optionArray;
 }
+function getAnswer(matchItem) {
+  const answerArray = [];
+  matchItem.questions.forEach((question) => {
+    answerArray.push(question.answer);
+  });
+  return answerArray;
+}
 
 function displayQuestionsAndOptions(array, arrayOptions) {
   let currentIndex = 0;
   const questionText = document.querySelector(".question");
   const optionsQuiz = document.querySelectorAll(".option");
   const nextSubmitBtn = document.querySelector(".submit-answer");
+
   function loadQuestionAndOptions(index) {
     questionText.textContent = array[index];
     arrayOptions[index].forEach((option, index) => {
@@ -95,4 +106,34 @@ function displayQuestionsAndOptions(array, arrayOptions) {
       nextSubmitBtn.style.display = "none";
     }
   });
+}
+
+function checkResult(answer) {
+  let currentIndex = 0;
+  const optionElement = document.querySelectorAll(".option");
+  const nextSubmitBtn = document.querySelector(".submit-answer");
+  optionElement.forEach((option) => {
+    option.addEventListener("click", () => {
+      //  console.log(option.childNodes[0])
+
+      // question.forEach((answers)=>{
+      //   console.log(answers.answer)
+      // })
+      console.log(answer[currentIndex]);
+      console.log(option.childNodes[0].textContent.replace(/"/g, ""));
+      if (currentIndex < answer.length) {
+        if (
+          answer[currentIndex] ===option.childNodes[0].textContent.replace(/"/g, "")
+        ) {
+          console.log('correct answer')
+        } else {
+         console.log('incorrect answer')
+        }
+      }
+     
+    });
+  });
+  nextSubmitBtn.addEventListener('click',()=>{
+    currentIndex++;
+  })
 }
