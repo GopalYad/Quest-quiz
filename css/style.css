@@ -58,6 +58,22 @@ body{
 .active{
     display: none;
 }
+.correct__option {
+    border: 2px solid green;
+    background-color: #d4fdd4;
+}
+
+.wrong__option {
+    border: 2px solid red;
+    background-color: #fdd4d4; 
+}
+
+.unselected__option {
+    border: 2px solid red;
+    background-color: transparent;
+    opacity: 0.7; 
+}
+
 @media (max-width:786px) {
    body{
     background-image: var(--bg-sm);

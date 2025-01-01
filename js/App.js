@@ -24,14 +24,20 @@ const data = await response.json();
 //     })
 // })
 
+//select all the btn(hml,css,,)
 const btns = document.querySelectorAll(".js-btn-features button");
-
+//loop through to add event
 btns.forEach((button) => {
   button.addEventListener("click", () => {
+    //use data data atribute to know which btn is to be seleclted
     const feature = button.dataset.feature;
     // console.log(`Button clicked: ${feature}`);
+
+    //each time button is clicked, it give value of that button e.g feature =html(by clicking html button)
     showClick(feature);
     // document.querySelector('.toggle__bar').classList.add('active')
+
+    //after clicking remove the elements
     document.querySelector(".content__quiz").classList.add("active");
     document.querySelector(".button__features").classList.add("active");
     document
@@ -40,6 +46,7 @@ btns.forEach((button) => {
   });
 });
 
+//used to identify attribute from data.json that button feature which data is to be retrive
 function showClick(feature) {
   let matchItem;
   data.quizzes.forEach((item) => {
@@ -62,6 +69,7 @@ function showClick(feature) {
   // displayQuestions(getQuestions(matchItem))
 }
 
+//retrive all specific question form json
 function getQuestions(matchItem) {
   const questionArray = [];
   matchItem.questions.forEach((item) => {
@@ -69,6 +77,7 @@ function getQuestions(matchItem) {
   });
   return questionArray;
 }
+//retive option
 function getOptions(matchItem) {
   const optionArray = [];
   matchItem.questions.forEach((questions) => {
@@ -76,6 +85,7 @@ function getOptions(matchItem) {
   });
   return optionArray;
 }
+//retrive answers
 function getAnswer(matchItem) {
   const answerArray = [];
   matchItem.questions.forEach((question) => {
@@ -84,6 +94,7 @@ function getAnswer(matchItem) {
   return answerArray;
 }
 
+//display qeustiona dnd option in the frontend
 function displayQuestionsAndOptions(array, arrayOptions) {
   let currentIndex = 0;
   const questionText = document.querySelector(".question");
@@ -108,10 +119,16 @@ function displayQuestionsAndOptions(array, arrayOptions) {
   });
 }
 
+//checks answer by matching to options
 function checkResult(answer) {
   let currentIndex = 0;
+  let score = 0;
+
+  console.log(score);
+
   const optionElement = document.querySelectorAll(".option");
   const nextSubmitBtn = document.querySelector(".submit-answer");
+  nextSubmitBtn.disabled = true;
   optionElement.forEach((option) => {
     option.addEventListener("click", () => {
       //  console.log(option.childNodes[0])
@@ -119,21 +136,47 @@ function checkResult(answer) {
       // question.forEach((answers)=>{
       //   console.log(answers.answer)
       // })
-      console.log(answer[currentIndex]);
+
+      nextSubmitBtn.disabled = false;
+
       console.log(option.childNodes[0].textContent.replace(/"/g, ""));
-      if (currentIndex < answer.length) {
-        if (
-          answer[currentIndex] ===option.childNodes[0].textContent.replace(/"/g, "")
-        ) {
-          console.log('correct answer')
-        } else {
-         console.log('incorrect answer')
-        }
+
+      if (answer[currentIndex] === option.childNodes[0].textContent.trim()) {
+        score++;
+        console.log(score);
+        console.log("correct answer");
+        option.classList.add("correct__option");
+      } else {
+        console.log("wrong answer");
+        option.classList.add("wrong__option");
+
+        optionElement.forEach((btn) => {
+          if (btn.childNodes[0].textContent.trim() === answer[currentIndex]) {
+            btn.classList.add("correct__option");
+          }
+        });
       }
-     
+      // option.classList.add('wrong__option');
+      optionElement.forEach((btn) => {
+        if (btn !== option && !btn.classList.contains("correct__option")) {
+          btn.classList.add("unselected__option");
+        }
+      });
     });
   });
-  nextSubmitBtn.addEventListener('click',()=>{
-    currentIndex++;
-  })
+  nextSubmitBtn.addEventListener("click", () => {
+    if (currentIndex < answer.length - 1) {
+      nextSubmitBtn.disabled = true;
+      currentIndex++;
+      optionElement.forEach((btn) =>
+        btn.classList.remove(
+          "correct__option",
+          "wrong__option",
+          "unselected__option"
+        )
+      );
+    } else {
+      nextSubmitBtn.disabled = true;
+    }
+  });
 }
