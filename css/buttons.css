@@ -10,10 +10,10 @@ margin-bottom: 5rem;
 
 }
 button{
-  width: 100%;
+  width: 90%;
   background-color: var(--button-bg);
   color: var(--text-color);
-  font-size: 1.125rem;
+  font-size: 1.1rem;
   font-size: clamp(1.125rem, 0.905rem + 0.939vw, 1.75rem);
   font-weight: 500;
   display: flex;

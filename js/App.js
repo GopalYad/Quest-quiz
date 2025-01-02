@@ -66,6 +66,7 @@ function showClick(feature) {
   displayQuestionsAndOptions(question, options);
   checkResult(answer);
 
+
   // displayQuestions(getQuestions(matchItem))
 }
 
@@ -131,52 +132,21 @@ function checkResult(answer) {
   nextSubmitBtn.disabled = true;
   optionElement.forEach((option) => {
     option.addEventListener("click", () => {
-      //  console.log(option.childNodes[0])
+     nextSubmitBtn.disabled=false
+     optionElement.forEach((btn)=>btn.classList.remove('correct__option'))
+     option.classList.add('correct__option')
 
-      // question.forEach((answers)=>{
-      //   console.log(answers.answer)
-      // })
-
-      nextSubmitBtn.disabled = false;
-
-      console.log(option.childNodes[0].textContent.replace(/"/g, ""));
-
-      if (answer[currentIndex] === option.childNodes[0].textContent.trim()) {
-        score++;
-        console.log(score);
-        console.log("correct answer");
-        option.classList.add("correct__option");
-      } else {
-        console.log("wrong answer");
-        option.classList.add("wrong__option");
-
-        optionElement.forEach((btn) => {
-          if (btn.childNodes[0].textContent.trim() === answer[currentIndex]) {
-            btn.classList.add("correct__option");
-          }
-        });
-      }
-      // option.classList.add('wrong__option');
-      optionElement.forEach((btn) => {
-        if (btn !== option && !btn.classList.contains("correct__option")) {
-          btn.classList.add("unselected__option");
-        }
-      });
     });
   });
   nextSubmitBtn.addEventListener("click", () => {
     if (currentIndex < answer.length - 1) {
       nextSubmitBtn.disabled = true;
       currentIndex++;
-      optionElement.forEach((btn) =>
-        btn.classList.remove(
-          "correct__option",
-          "wrong__option",
-          "unselected__option"
-        )
-      );
+     
     } else {
       nextSubmitBtn.disabled = true;
     }
   });
 }
+
+
