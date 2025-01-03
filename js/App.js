@@ -1,4 +1,5 @@
 const actionToggle = document.getElementById("toggle");
+const img = document.createElement("img");
 actionToggle.addEventListener("click", (event) => {
   if (event.target.checked) {
     document.documentElement.setAttribute("data-theme", "dark");
@@ -61,6 +62,7 @@ function showClick(feature) {
   const options = getOptions(matchItem);
   const answer = getAnswer(matchItem);
   console.log(answer);
+ 
   // console.log(question)
   // console.log(options);
   displayQuestionsAndOptions(question, options);
@@ -139,14 +141,20 @@ function checkResult(answer) {
     });
   });
   nextSubmitBtn.addEventListener("click", () => {
+    
     if (currentIndex < answer.length - 1) {
+     
       nextSubmitBtn.disabled = true;
       currentIndex++;
+      optionElement.forEach((btn)=>btn.classList.remove('correct__option'))
      
     } else {
       nextSubmitBtn.disabled = true;
     }
   });
 }
+
+
+
 
 
