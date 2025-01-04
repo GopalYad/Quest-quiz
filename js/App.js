@@ -137,7 +137,7 @@ function checkResult(answer) {
      nextSubmitBtn.disabled=false
      optionElement.forEach((btn)=>btn.classList.remove('correct__option'))
      option.classList.add('correct__option')
-
+    score++
     });
   });
   nextSubmitBtn.addEventListener("click", () => {
@@ -150,10 +150,14 @@ function checkResult(answer) {
      
     } else {
       nextSubmitBtn.disabled = true;
+      console.log('end question')
+     document.querySelector('.question-screen').classList.add('hidden')
+      document.querySelector('.result__container').classList.add('result')
+     document.querySelector('.final-score').textContent =score;
+
     }
   });
 }
-
 
 
 

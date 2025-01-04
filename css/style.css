@@ -60,7 +60,7 @@ body{
 }
 .correct__option {
     border: 3px solid purple;
-    background-color: #d4fdd4;
+   
 }
 
 .wrong__option {
@@ -84,7 +84,17 @@ body{
     color: var(--text-color);
 }
 
+.hidden {
+    display: none;
+  }
 
+.result__container{
+    display: none;
+   
+}  
+.result{
+    display: block;
+}
 
 @media (max-width:786px) {
    body{
