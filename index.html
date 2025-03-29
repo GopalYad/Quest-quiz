@@ -11,20 +11,18 @@
   </head>
   <body>
     <!----------------Quiz menu start-------------------------------->
-    <div class="main">
+  
       <!-----Toggle bar start------>
-      <div class="toggle__bar" >
-
-        <div class="space__bar"></div>
+      <div class="toggle__bar" aria-label="Theme toggle">
         <div class="togle__box">
           <div class="toggle__btn">
             <div class="sun__img">
-              <img src="" alt="">
+              <img src="./assets/icon-sun-dark.svg" alt="Light theme">
             </div>
-            <input type="checkbox" name="checkbox" id="toggle" />
+            <input type="checkbox" name="checkbox" id="toggle" aria-label="Toggle dark mode" />
             <label for="toggle" class="switch"></label>
             <div class="moon__img">
-              <img src="" alt="">
+              <img src="./assets/icon-moon-dark.svg" alt="Dark theme">
             </div>
           </div>
         </div>
@@ -32,100 +30,116 @@
       
 
       <!--------CONTENT ABOUT QUIZ-->
-      <div class="content__quiz">
-        <h1>Welcome to the <span class="bolded">Frontend Quiz!</span></h1>
-        <p>Pick a subject to get started.</p>
-      </div>
-
-      <!----BUTTONS FEATURES QUIZ---->
-      <div class="button__features js-btn-features" >
-        <button  class="button-html" data-feature="HTML">
-          <div class="button-icon-container">
-            <img src="./Assets/icon-html.svg">
-          </div>HTML
-        </button>
-        <button class="button-css" data-feature="CSS">
-          <div class="button-icon-container">
-            <img src="./Assets/icon-css.svg">
-          </div>CSS
-        </button>
-        <button class="button-js" data-feature="JavaScript">
-          <div class="button-icon-container">
-            <img src="./Assets/icon-js.svg">
-          </div>
-          JavaScript
-        </button>
-        <button class="button-accessibility" data-feature="Accessibility">
-          <div class="button-icon-container">
-            <img src="./Assets/icon-accessibility.svg">
-          </div>
-          Accessibility
-        </button>
-      </div>
-
-
-      <!--------Qustion Container----------------->
-       <div class="question__container">
-        <article class="question-screen">
-          <div class="left-content">
-            <div class="question-wrapper">
-              <p class="question-count">Question <span class="question-number"><!-- number --></span> of <span
-                  class="question-total"><!-- total --></span></p>
-              <h2 class="question">Placeholder</h2>
+       <section class="first__page" aria-label="Quiz Subject Selection">
+        <div class="content__quiz">
+          <h1>Welcome to the <span class="bolded">Frontend Quiz!</span></h1>
+          <p>Pick a subject to get started.</p>
+        </div>
+  
+   
+        <div class="button__features js-btn-features" role="group" aria-label="Quiz subjects">
+          <button class="button-html" data-feature="HTML" aria-label="HTML Quiz">
+            <div class="button-icon-container">
+              <img src="./assets/icon-html.svg" alt="HTML icon">
+            </div>HTML
+          </button>
+          <button class="button-css" data-feature="CSS" aria-label="CSS Quiz">
+            <div class="button-icon-container">
+              <img src="./assets/icon-css.svg" alt="CSS icon">
+            </div>CSS
+          </button>
+          <button class="button-js" data-feature="JavaScript" aria-label="JavaScript Quiz">
+            <div class="button-icon-container">
+              <img src="./assets/icon-js.svg" alt="JavaScript icon">
             </div>
-            <div class="progress-bar whole">
-              <div class="progress-bar done">
-    
+            JavaScript
+          </button>
+          <button class="button-accessibility" data-feature="Accessibility" aria-label="Accessibility Quiz">
+            <div class="button-icon-container">
+              <img src="./assets/icon-accessibility.svg" alt="Accessibility icon">
+            </div>
+            Accessibility
+          </button>
+        </div>
+      </section> 
+
+
+      <!--------Question Container----------------->
+    <section class="second__page" aria-label="Quiz Questions">
+      
+        
+        <div class="question__container">
+          <article class="question-screen">
+            <div class="left-content">
+              <div class="question-wrapper">
+                <p class="question-count">Question <span class="question-number" aria-live="polite">6</span> of <span
+                    class="question-total" aria-live="polite">10</span></p>
+                <h2 class="question" aria-live="polite">Which of these color contrast ratios defines the minimum WCAG 2.1 Level AA requirement for normal text?</h2>
+              </div>
+              <div class="progress-bar whole" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60">
+                <div class="progress-bar done" style="--progress: 60%">
+                </div>
               </div>
             </div>
-          </div>
-          <div class="choices options">
-            <button id="1" class="option">
-              <div class="option-box">A</div>
-            </button>
-            <button id="2" class="option">
-              <div class="option-box">B</div>
-            </button>
-            <button id="3" class="option">
-              <div class="option-box">C</div>
-            </button>
-            <button id="4" class="option">
-              <div class="option-box">D</div>
-            </button>
-    
-            <button class="submit-answer">Submit answer</button>
-            <div class="select-prompt">
-              <img src="./Assets/icon-error.svg" alt="error icon">
-              <p class="select-prompt-text">Please select an answer</p>
+            <div class="choices options" role="radiogroup" aria-labelledby="question">
+              <button id="1" class="option" role="radio" aria-checked="false">
+                <div class="option-box">A</div>
+                <span class="option-text">4.5 : 1</span>
+              </button>
+              <button id="2" class="option" role="radio" aria-checked="false">
+                <div class="option-box">B</div>
+                <span class="option-text">3 : 1</span>
+              </button>
+              <button id="3" class="option" role="radio" aria-checked="false">
+                <div class="option-box">C</div>
+                <span class="option-text">2.5 : 1</span>
+              </button>
+              <button id="4" class="option" role="radio" aria-checked="false">
+                <div class="option-box">D</div>
+                <span class="option-text">5 : 1</span>
+              </button>
+      
+              <button class="submit-answer" aria-label="Submit answer">Submit answer</button>
+              <div class="select-prompt hidden" role="alert">
+                <img src="./assets/icon-error.svg" alt="error icon">
+                <p class="select-prompt-text">Please select an answer</p>
+              </div>
             </div>
-          </div>
-        </article>
-       </div>
+          </article>
+         </div>
+      </section>
+    
 
 
        <!-------result container---------->
-       <div class="result__container" >
-         <div class="complete-left">
-        <h1>Quiz completed
-          <span class="scored">You scored...</span>
-        </h1>
-      </div>
 
-      <div class="complete-right">
-        <div class="score-container">
-          <div class="final curr-subject">
-            <div class="button-icon-container">
-              <img class="subject-img" src="./Assets/icon-css.svg" alt="subject icon">
+       <section class="third__page" aria-label="Quiz Results" style="display: block;">
+        <div class="result__container">
+      
+          <div class="result-header">
+            <div class="subject-icon-container">
+              <img src="./assets/icon-html.svg" alt="HTML" class="subject-img">
             </div>
-            <!-- <img class="subject-img" src=""> -->
-            <h2 class="subject-chosen">some Subject</h2>
+            <h2 class="subject-title">HTML</h2>
           </div>
-          <h1 class="final-score"><!-- score --></h1>
-          <p class="score-out-of">out of <span class="complete-question-total">totalQ</span></p>
+
+        
+          <div class="complete-left">
+            <h1>Quiz completed</h1>
+            <!-- <p class="scored">You scored...</p> -->
+          </div>
+ 
+         
+          <div class="complete-right">
+            <div class="score-container" aria-live="polite">
+              <h1 class="final-score" aria-label="Your score">2</h1>
+              <p class="score-out-of">out of <span class="complete-question-total">10</span></p>
+            </div>
+            <button class="restart" aria-label="Play again">Play Again</button>
+          </div>
         </div>
-        <button class="restart">Play Again</button>
-      </div>
-    </div>
+       </section>
+       
     <script type="module" src="./js/App.js"></script>
   </body>
 </html>
